@@ -3460,3 +3460,257 @@ body::after {
   .orbit-blue, .orbit-gold, .theme-toggle::before, .theme-icon,
   .theme-toggle.is-switching { animation: none !important; }
 }
+
+/* Professional team section refinement */
+#page-team { position:relative; isolation:isolate; overflow:hidden; }
+#page-team::before { content:""; position:absolute; width:440px;height:440px;right:-180px;top:4%;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.13),transparent 68%);pointer-events:none;z-index:-1; }
+#page-team .about-copy { max-width:850px; margin:0 auto 2.8rem; text-align:center; }
+#page-team .eyebrow { letter-spacing:.19em; text-transform:uppercase; font-size:.78rem; font-weight:800; color:var(--accent,#5da9ff); }
+#page-team .section-heading { display:block; }
+#page-team .section-heading strong { display:block; font-weight:500; line-height:1.85; color:var(--text-muted, #9aa9bf); }
+#page-team .value-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,2.3vw,30px); align-items:stretch; }
+#page-team .team-card { border:1px solid rgba(148,163,184,.22); border-radius:22px; overflow:hidden; background:linear-gradient(155deg,rgba(255,255,255,.075),rgba(255,255,255,.025)); box-shadow:0 12px 32px rgba(0,0,0,.10); transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease; }
+#page-team .team-card:hover { transform:translateY(-6px); border-color:rgba(96,165,250,.55); box-shadow:0 22px 45px rgba(0,0,0,.19); }
+#page-team .team-frame { margin:12px 12px 0; border-radius:15px; overflow:hidden; background:rgba(100,116,139,.12); }
+#page-team .team-frame > .team-photo { height:clamp(230px,24vw,310px)!important; border-radius:15px!important; object-fit:cover!important; object-position:center 25%; transition:transform .45s ease; }
+#page-team .team-card:hover .team-photo { transform:scale(1.035); }
+#page-team .team-into { padding:18px 20px 8px; background:transparent; border:0; box-shadow:none; }
+#page-team .avatar-stack { display:none; }
+#page-team .team-profile-copy { color:var(--text,#e8edf5); font-size:.92rem; }
+#page-team .team-profile-copy strong { font-size:1.18rem; font-weight:800; }
+#page-team .team-card small { color:var(--text-muted,#9aa9bf); font-size:.84rem; }
+#page-team .trust-row { padding:8px 20px 20px; border:0; background:transparent; }
+#page-team .trust-contacts { display:flex; flex-wrap:wrap; gap:8px; }
+#page-team .trust-contact-item { display:inline-flex; align-items:center; gap:7px; font-size:.76rem; color:var(--text-muted,#9aa9bf); text-decoration:none; }
+#page-team .trust-contact-icon svg { width:16px;height:16px; }
+@media(max-width:900px){#page-team .value-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:580px){#page-team .value-grid{grid-template-columns:1fr;gap:18px;}#page-team .team-frame > .team-photo{height:300px!important;}#page-team .about-copy{margin-bottom:2rem;}}
+@media(prefers-reduced-motion:reduce){#page-team .team-card,#page-team .team-photo{transition:none!important;}}
+
+/* Premium ambient background + page entrance */
+body {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(28, 117, 230, .13), transparent 34%),
+    radial-gradient(ellipse at 88% 72%, rgba(255, 190, 91, .075), transparent 32%),
+    var(--page);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 25% 30%, rgba(54,167,255,.14), transparent 24%),
+    radial-gradient(circle at 75% 65%, rgba(255,198,109,.09), transparent 25%);
+  filter: blur(28px);
+  animation: hfc-ambient-drift 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes hfc-ambient-drift {
+  0% { transform: translate3d(-2%, -1%, 0) scale(.98); }
+  50% { transform: translate3d(2%, 2%, 0) scale(1.04); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1); }
+}
+.hero-section {
+  background:
+    radial-gradient(ellipse at 78% 24%, rgba(36, 132, 255, .22), transparent 39%),
+    radial-gradient(ellipse at 16% 86%, rgba(255, 190, 91, .09), transparent 34%),
+    transparent;
+}
+.hero-glow { animation: hfc-glow-float 12s ease-in-out infinite alternate; }
+.glow-two { animation-delay: -5s; }
+@keyframes hfc-glow-float {
+  from { transform: translate3d(-12px, -10px, 0) scale(.94); }
+  to { transform: translate3d(18px, 20px, 0) scale(1.08); }
+}
+.hero-copy > * {
+  animation: hfc-hero-enter .8s both;
+}
+.hero-copy .eyebrow { animation-delay: .08s; }
+.hero-copy h1 { animation-delay: .18s; }
+.hero-copy .hero-lead { animation-delay: .3s; }
+.hero-copy .hero-actions { animation-delay: .42s; }
+.hero-copy .trust-row { animation-delay: .55s; }
+.hero-visual, .hero-image, .hero-art {
+  animation: hfc-visual-enter 1.05s .22s both;
+}
+@keyframes hfc-hero-enter {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hfc-visual-enter {
+  from { opacity: 0; transform: translate3d(0, 18px, 0) scale(.97); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* =====================================================================
+   HEWAD SIGNATURE MOTION BACKGROUND — animated aurora + orbiting light
+   This is intentionally a background-only enhancement; content stays above it.
+   ===================================================================== */
+body {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--page);
+  background-image:
+    radial-gradient(ellipse at 12% 12%, rgba(31, 133, 255, .19), transparent 38%),
+    radial-gradient(ellipse at 88% 34%, rgba(63, 190, 255, .12), transparent 35%),
+    radial-gradient(ellipse at 52% 95%, rgba(255, 190, 91, .10), transparent 42%),
+    linear-gradient(135deg, var(--page) 0%, #07152b 48%, var(--page) 100%);
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: -35%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .9;
+  background:
+    radial-gradient(ellipse 42% 30% at 18% 35%, rgba(24, 119, 255, .30), transparent 72%),
+    radial-gradient(ellipse 35% 42% at 75% 25%, rgba(75, 207, 255, .19), transparent 70%),
+    radial-gradient(ellipse 38% 34% at 58% 78%, rgba(255, 183, 76, .15), transparent 72%);
+  filter: blur(46px);
+  transform: translate3d(0,0,0);
+  animation: hewad-aurora-flow 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .42;
+  background-image:
+    radial-gradient(circle, rgba(120, 208, 255, .68) 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255, 202, 116, .48) 1px, transparent 1.8px);
+  background-size: 92px 92px, 137px 137px;
+  background-position: 0 0, 38px 54px;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  animation: hewad-star-drift 38s linear infinite;
+}
+@keyframes hewad-aurora-flow {
+  0% { transform: translate3d(-3%, -2%, 0) rotate(-3deg) scale(.96); }
+  50% { transform: translate3d(2%, 3%, 0) rotate(2deg) scale(1.04); }
+  100% { transform: translate3d(4%, -1%, 0) rotate(5deg) scale(1.08); }
+}
+@keyframes hewad-star-drift {
+  from { background-position: 0 0, 38px 54px; }
+  to { background-position: 92px 184px, -99px 328px; }
+}
+:root[data-theme="light"] body {
+  background-image:
+    radial-gradient(ellipse at 12% 12%, rgba(31, 133, 255, .13), transparent 38%),
+    radial-gradient(ellipse at 88% 34%, rgba(63, 190, 255, .10), transparent 35%),
+    radial-gradient(ellipse at 52% 95%, rgba(255, 190, 91, .10), transparent 42%),
+    linear-gradient(135deg, #f6f8fc 0%, #edf4ff 48%, #f6f8fc 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none !important; }
+}
+
+/* ================================================================
+   HOME PAGE MOTION — theme-aware, subtle and lightweight
+   ================================================================ */
+:root {
+  --motion-glow-a: color-mix(in srgb, var(--blue) 15%, transparent);
+  --motion-glow-b: color-mix(in srgb, var(--gold) 11%, transparent);
+}
+body {
+  background-image:
+    radial-gradient(ellipse at 12% 8%, var(--motion-glow-a), transparent 42%),
+    radial-gradient(ellipse at 88% 32%, var(--motion-glow-b), transparent 38%);
+  background-attachment: fixed;
+}
+.section-reveal {
+  position: relative;
+  isolation: isolate;
+}
+.motion-ready .section-reveal:not(.is-visible) {
+  opacity: .78;
+}
+.motion-ready .section-reveal.is-visible {
+  animation: hfc-section-enter 850ms cubic-bezier(.2,.75,.25,1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+.motion-ready #main > .hero-section.is-visible {
+  animation: hfc-hero-enter 1.05s cubic-bezier(.2,.75,.25,1) both;
+}
+@keyframes hfc-section-enter {
+  0% { opacity: .68; transform: translate3d(0, 28px, 0); }
+  65% { opacity: 1; }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes hfc-hero-enter {
+  from { opacity: 0; transform: translate3d(0, 18px, 0) scale(.992); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body { background-attachment: scroll; }
+  .motion-ready .section-reveal,
+  .motion-ready .section-reveal.is-visible,
+  .motion-ready #main > .hero-section.is-visible { animation: none !important; opacity: 1; transform: none; }
+}
+
+/* Vanta NET ambient network layer — transparent canvas, content remains readable */
+#hfc-halo-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.42;
+  isolation: isolate;
+}
+#hfc-halo-background canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+body > :not(#hfc-halo-background) {
+  position: relative;
+  z-index: 1;
+}
+/* NET reads better a bit stronger in dark; softer in light so text stays clear */
+:root[data-theme="light"] #hfc-halo-background { opacity: 0.28; }
+:root[data-theme="dark"] #hfc-halo-background { opacity: 0.48; }
+/* Keep the ambient Vanta background visible in every motion preference. */
+@media (max-width: 700px) {
+  :root[data-theme="light"] #hfc-halo-background { opacity: 0.30; }
+  :root[data-theme="dark"] #hfc-halo-background { opacity: 0.44; }
+}
+
+
+
+/* FINAL FIX: keep the original navbar pinned and visible during all scrolling. */
+.site-header,
+.site-header.is-scrolled {
+  position: fixed !important;
+  top: 20px !important;
+  left: 3% !important;
+  right: auto !important;
+  width: 94% !important;
+  z-index: 10000 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  translate: none !important;
+  pointer-events: auto !important;
+  transition: background .35s ease, border-color .35s ease, box-shadow .35s ease !important;
+}
+@media (max-width: 800px) {
+  .site-header, .site-header.is-scrolled {
+    top: 8px !important; left: 2% !important; width: 96% !important;
+  }
+}

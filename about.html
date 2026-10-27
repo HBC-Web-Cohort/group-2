@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+  <div id="hfc-halo-background" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <!-- HEADER: logo, menu, theme button -->
@@ -377,7 +378,7 @@
           Kabul, Afghanistan</span
         >
         <a
-          href="mailto:nfo@hewadfuture.com"
+          href="mailto:info@hewadfuture.com"
           style="font-weight: 800; height: inherit"
           ><span
             ><svg
@@ -397,11 +398,15 @@
               />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg
           ></span>
-          nfo@hewadfuture.com</a
+          info@hewadfuture.com</a
         >
       </div>
     </footer>
 
-    <script src="script.js" defer></script>
-  </body>
+  <!-- Vanta HALO ambient background + shared app script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js" defer></script>
+  <script src="script.js" defer></script>
+
+</body>
 </html>
